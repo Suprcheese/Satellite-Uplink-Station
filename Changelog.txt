@@ -1,3 +1,10 @@
 Version 0.1.0 - February 7, 2016
 --------------------------------
 Initial release, featuring Satellite Uplink Stations that enable remote exploration/viewing/base management.
+
+
+Version 0.1.1 - February 22, 2016
+---------------------------------
+Increased the maximum camera movement speed while uplinked.
+The technology more reliably unlocks when launching a satellite into orbit.
+New option in config.lua to enable more interactivity while uplinked.

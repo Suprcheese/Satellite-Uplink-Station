@@ -13,3 +13,9 @@ enableBobUpdates = true
 -- This is set to false by default because it negatively impacts performance, and you should just refrain from using the logistics network while uplinked.
 
 disableLogisticsWhileUplinked = false
+
+
+-- If true, instead of being limited while uplinked, you will gain full interactivity, being able to choose assembling machine recipes, set requester chest filters, etc.
+-- This will also let you take items from chests that go straight to you quickbar, which is not intended behavior, so it is false by default; use at your own discretion.
+
+enableFullControlWhileUplinked = false

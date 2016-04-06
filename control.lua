@@ -64,7 +64,7 @@ script.on_event(defines.events.on_rocket_launched, function(event)
 	if not force.technologies["uplink-station"].enabled then
 		for i, player in ipairs(force.players) do
 			if player.connected then
-				if player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0 then
+				if (player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0)  or event.rocket.get_item_count("satellite") > 0 then
 					player.force.technologies["uplink-station"].enabled = true
 					messageForce({"first-satellite-sent"}, force)
 					break

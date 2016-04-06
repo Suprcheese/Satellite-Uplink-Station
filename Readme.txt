@@ -1,7 +1,7 @@
-Satellite Uplink Station 0.1.0
+Satellite Uplink Station 0.1.1
 ==============================
 
-Version 0.1.0 was released February 7, 2016, was tested using Factorio v0.12.22, and was authored by Supercheese.
+Version 0.1.1 was released February 22, 2016, was tested using Factorio v0.12.23, and was authored by Supercheese.
 
 This mod features Satellite Uplink Stations: Build and enter an uplink station like any other vehicle (enter key by default), and you'll gain the ability to remotely view any area as an "eye in the sky" thanks to your spy satellite(s) in orbit.
 You can move the view around using the same movement keys (WASD by default), and when you're finished, click the "Terminate Uplink" button at top to return to controlling your player-character dude.
@@ -28,7 +28,7 @@ Additionally, this mod is aware of Bob's mods and will update its recipes and te
 Known Issues:
 -------------
 
-Even though you have no inventory while uplinked, as of Factorio v0.12.22, you can still pick up items off the ground that go directly to your quickbar.
+Even though you have no inventory while uplinked, as of Factorio v0.12.23, you can still pick up items off the ground that go directly to your quickbar.
 However, there is a fix for this in the pipeline for Factorio v0.13.
 
 Although you're just supposed to have an observer's view while uplinked and only have limited potential for interactions, you can still use the logistics system while uplinked to request items that will go to your quickbar.
@@ -49,7 +49,7 @@ The graphics for the Uplink Station were rendered from this model provided by NA
 The webpage at http://nasa3d.arc.nasa.gov/ states that, "All of these resources are free to download and use."
 
 The background of the technology icon was edited from: http://opengameart.org/content/red-planet-2
-This art resource is used under the terms of the CC-BY-SA 3.0 license.
+This art resource is used under the terms of the CC-BY-SA license.
 
 The sound effects are from the video game "Command & Conquer: Red Alert" by Westwood Studios.
 This video game was released as freeware in 2008.
@@ -61,7 +61,7 @@ Portions of the control.lua code (et al.) were inspired by code from the followi
 
 My thanks to these talented modders for their great mods.
 
-Thanks to the #factorio IRC denizens for advice & bugtesting.
+Thanks to the forum and #factorio IRC denizens for advice & bugtesting.
 
 
 See also the associated forum thread to give feedback, view screenshots, etc.:

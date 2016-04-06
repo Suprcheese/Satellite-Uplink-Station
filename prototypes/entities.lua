@@ -45,7 +45,7 @@ data:extend({
     ticks_to_keep_gun = 0,
     ticks_to_keep_aiming_direction = 0,
     damage_hit_tint = {r = 0, g = 0, b = 0, a = 0},
-    running_speed = 1,
+    running_speed = 1.5,
     distance_per_frame = 0.13,
     maximum_corner_sliding_distance = 0.7,
     subgroup = "creatures",
@@ -225,3 +225,7 @@ data:extend({
 	},
   },
 })
+
+if enableFullControlWhileUplinked then
+	data.raw["player"]["orbital-uplink"].reach_distance = 7
+end
