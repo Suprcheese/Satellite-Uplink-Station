@@ -38,7 +38,7 @@ data:extend({
     crafting_categories = {},
     mining_categories = {},
     inventory_size = 0,
-    build_distance = 7,
+    build_distance = 0,
     drop_item_distance = 0,
     reach_distance = 0,
     reach_resource_distance = 0,
@@ -225,6 +225,10 @@ data:extend({
 	},
   },
 })
+
+if data.raw["item"]["resource-monitor"] then
+	data.raw["player"]["orbital-uplink"].build_distance = 7
+end
 
 if enableFullControlWhileUplinked then
 	data.raw["player"]["orbital-uplink"].reach_distance = 7

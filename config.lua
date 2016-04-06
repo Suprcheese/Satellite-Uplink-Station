@@ -17,5 +17,6 @@ disableLogisticsWhileUplinked = false
 
 -- If true, instead of being limited while uplinked, you will gain full interactivity, being able to choose assembling machine recipes, set requester chest filters, etc.
 -- This will also let you take items from chests that go straight to you quickbar, which is not intended behavior, so it is false by default; use at your own discretion.
+-- If you also use Orbital Ion Cannon, it is strongly recommended to disable the ion cannons' Proximity Check if you have full control enabled while uplinked.
 
 enableFullControlWhileUplinked = false

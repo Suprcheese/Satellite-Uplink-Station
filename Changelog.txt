@@ -8,3 +8,9 @@ Version 0.1.1 - February 22, 2016
 Increased the maximum camera movement speed while uplinked.
 The technology more reliably unlocks when launching a satellite into orbit.
 New option in config.lua to enable more interactivity while uplinked.
+
+
+Version 0.1.2 - March 1, 2016
+-----------------------------
+Added Russian translation (thanks to apriori).
+Properly fixed the technology to use Bob's Science Pack 4 if bobtech is loaded.

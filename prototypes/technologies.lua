@@ -29,6 +29,6 @@ data:extend({
  },
 })
 
-if data.raw["item"]["science-pack-4"] and enableBobUpdates then
+if data.raw["tool"]["science-pack-4"] and enableBobUpdates then
 	data.raw["technology"]["uplink-station"].unit.ingredients[4] = {"science-pack-4", 2}
 end
