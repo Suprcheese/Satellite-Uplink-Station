@@ -30,6 +30,8 @@ Additionally, this mod is aware of Bob's mods and will update its recipes and te
 Known Issues:
 -------------
 
+When using a blueprint while uplinked, you are unable to use the Q key to automatically return the blueprint to your quickbar; you must manually click a slot to return it.
+
 Even though you have no inventory while uplinked, as of Factorio v0.12.30, you can still pick up items off the ground that go directly to your quickbar. This may lead to annoying messages when the game tries to auto-insert lootable Alien Artifacts, but is unable to do so.
 However, there is a fix for this in the pipeline for Factorio v0.13.
 
