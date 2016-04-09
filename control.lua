@@ -147,6 +147,7 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		if game.item_prototypes["resource-monitor"] then
 			player.insert({name="resource-monitor", count=1})
 		end
+		player.get_inventory(defines.inventory.player_quickbar).insert({name="blueprint", count=10})
 		player.get_inventory(defines.inventory.player_tools).insert({name="dummy-axe", count=1})
 		player.get_inventory(defines.inventory.player_guns).insert({name="dummy-gun", count=1})
 		player.get_inventory(defines.inventory.player_guns).insert({name="dummy-gun-2", count=1})
