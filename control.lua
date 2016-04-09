@@ -21,12 +21,17 @@ script.on_event(defines.events.on_gui_click, function(event)
 	local player = game.players[event.element.player_index]
 	local name = event.element.name
 	if (name == "terminate-uplink") then
-		if enableSounds then
-			playSoundForPlayer("uplink-deactivate", player)
-		end
-		player.print({"uplink-terminated"})
 		local uplink = player.character
-		player.character = global.character_data[event.element.player_index]
+		if not global.character_data[event.element.player_index] or not global.character_data[event.element.player_index].valid then
+			player.print({"critical-character-error"})
+			return
+		else
+			if enableSounds then
+				playSoundForPlayer("uplink-deactivate", player)
+			end
+			player.print({"uplink-terminated"})
+			player.character = global.character_data[event.element.player_index]
+		end
 		uplink.destroy()
 		player.driving = false
 		if (player.gui.top["terminate-uplink"]) then
