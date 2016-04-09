@@ -2,7 +2,7 @@ data:extend({
 	{
 	type = "item",
 	name = "uplink-station",
-	icon = "__Uplink Station__/graphics/UplinkStationIcon.png",
+	icon = "__Satellite Uplink Station__/graphics/UplinkStationIcon.png",
 	flags = {"goes-to-quickbar"},
     place_result = "uplink-station",
 	subgroup = "defensive-structure",
@@ -12,8 +12,8 @@ data:extend({
   {
     type = "gun",
     name = "dummy-gun",
-    icon = "__Uplink Station__/graphics/null.png",
-    flags = {"goes-to-main-inventory"},
+    icon = "__Satellite Uplink Station__/graphics/null.png",
+    flags = {"goes-to-main-inventory", "hidden"},
     subgroup = "gun",
     order = "a[basic-clips]-z[dummy]",
     attack_parameters =
@@ -42,8 +42,8 @@ data:extend({
   {
     type = "gun",
     name = "dummy-gun-2",
-    icon = "__Uplink Station__/graphics/null.png",
-    flags = {"goes-to-main-inventory"},
+    icon = "__Satellite Uplink Station__/graphics/null.png",
+    flags = {"goes-to-main-inventory", "hidden"},
     subgroup = "gun",
     order = "a[basic-clips]-z[dummy]",
     attack_parameters =
@@ -72,8 +72,8 @@ data:extend({
     {
     type = "gun",
     name = "dummy-gun-3",
-    icon = "__Uplink Station__/graphics/null.png",
-    flags = {"goes-to-main-inventory"},
+    icon = "__Satellite Uplink Station__/graphics/null.png",
+    flags = {"goes-to-main-inventory", "hidden"},
     subgroup = "gun",
     order = "a[basic-clips]-z[dummy]",
     attack_parameters =
@@ -102,8 +102,8 @@ data:extend({
   {
     type = "mining-tool",
     name = "dummy-axe",
-    icon = "__Uplink Station__/graphics/null.png",
-    flags = {"goes-to-main-inventory"},
+    icon = "__Satellite Uplink Station__/graphics/null.png",
+    flags = {"goes-to-main-inventory", "hidden"},
     {
       type="direct",
       action_delivery =

@@ -1,5 +1,6 @@
 require "util"
 require "defines"
+require "stdlib/game"
 require ("config")
 
 script.on_init(function() On_Init() end)
@@ -23,7 +24,7 @@ script.on_event(defines.events.on_gui_click, function(event)
 		if enableSounds then
 			playSoundForPlayer("uplink-deactivate", player)
 		end
-		messagePlayer({"uplink-terminated"}, player)
+		player.print({"uplink-terminated"})
 		local uplink = player.character
 		player.character = global.character_data[event.element.player_index]
 		uplink.destroy()
@@ -34,18 +35,6 @@ script.on_event(defines.events.on_gui_click, function(event)
 		return
 	end
 end)
-
-function messageForce(mes, force)
-  for i, player in ipairs(force.players) do
-	if player.connected then
-		player.print(mes)
-	end
-  end
-end
-
-function messagePlayer(mes, player)
-    player.print(mes)
-end
 
 function playSoundForPlayer(sound, player)
 	player.surface.create_entity({name = sound, position = player.position})
@@ -66,7 +55,7 @@ script.on_event(defines.events.on_rocket_launched, function(event)
 			if player.connected then
 				if (player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0) or event.rocket.get_item_count("satellite") > 0 then
 					player.force.technologies["uplink-station"].enabled = true
-					messageForce({"first-satellite-sent"}, force)
+					Game.print_force(force, {"first-satellite-sent"})
 					break
 				end
 			end
@@ -132,7 +121,7 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		return
 	end
 	if player.vehicle and player.vehicle.name == "uplink-station" then
-		messagePlayer({"initiating-uplink"}, player)
+		player.print({"initiating-uplink"})
 		if enableSounds then
 			playSoundForPlayer("uplink-activate", player)
 		end

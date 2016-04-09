@@ -2,7 +2,7 @@ data:extend({
  {
   type = "technology",
   name = "uplink-station",
-  icon = "__Uplink Station__/graphics/SatUplink.png",
+  icon = "__Satellite Uplink Station__/graphics/SatUplink.png",
   icon_size = 128,
   prerequisites = {"rocket-silo"},
   enabled = false,

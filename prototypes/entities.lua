@@ -1,5 +1,5 @@
 local empty_animation = {
-    filename = "__Uplink Station__/graphics/null.png",
+    filename = "__Satellite Uplink Station__/graphics/null.png",
     priority = "medium",
     width = 0,
     height = 0,
@@ -79,7 +79,7 @@ data:extend({
   {
     type = "car",
     name = "uplink-station",
-    icon = "__Uplink Station__/graphics/UplinkStationIcon.png",
+    icon = "__Satellite Uplink Station__/graphics/UplinkStationIcon.png",
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 3, result = "uplink-station"},
 	mined_sound = { filename = "__core__/sound/deconstruct-large.ogg" },
@@ -120,7 +120,7 @@ data:extend({
           max_advance = 0,
 		  scale = 0.33,
 		  priority = "extra-high",
-		  filename = "__Uplink Station__/graphics/UplinkStation.png",
+		  filename = "__Satellite Uplink Station__/graphics/UplinkStation.png",
         },
       }
     },
@@ -135,12 +135,12 @@ data:extend({
       },
       activate_sound =
       {
-        filename = "__Uplink Station__/sound/Activate.ogg",
+        filename = "__Satellite Uplink Station__/sound/Activate.ogg",
         volume = 0
       },
       deactivate_sound =
       {
-        filename = "__Uplink Station__/sound/Deactivate.ogg",
+        filename = "__Satellite Uplink Station__/sound/Deactivate.ogg",
         volume = 0
       },
       match_speed_to_activity = false,
@@ -156,7 +156,7 @@ data:extend({
 	animations =
 	{
 		{
-			filename = "__Uplink Station__/graphics/null.png",
+			filename = "__Satellite Uplink Station__/graphics/null.png",
 			priority = "low",
 			width = 32,
 			height = 32,
@@ -169,7 +169,7 @@ data:extend({
 	sound =
 	{
 	  {
-		filename = "__Uplink Station__/sound/Activate.ogg",
+		filename = "__Satellite Uplink Station__/sound/Activate.ogg",
 		volume = 0.6
 	  },
 	},
@@ -181,7 +181,7 @@ data:extend({
 	animations =
 	{
 		{
-			filename = "__Uplink Station__/graphics/null.png",
+			filename = "__Satellite Uplink Station__/graphics/null.png",
 			priority = "low",
 			width = 32,
 			height = 32,
@@ -194,7 +194,7 @@ data:extend({
 	sound =
 	{
 	  {
-		filename = "__Uplink Station__/sound/Deactivate.ogg",
+		filename = "__Satellite Uplink Station__/sound/Deactivate.ogg",
 		volume = 0.6
 	  },
 	},
@@ -206,7 +206,7 @@ data:extend({
 	animations =
 	{
 		{
-			filename = "__Uplink Station__/graphics/null.png",
+			filename = "__Satellite Uplink Station__/graphics/null.png",
 			priority = "low",
 			width = 32,
 			height = 32,
@@ -219,7 +219,7 @@ data:extend({
 	sound =
 	{
 	  {
-		filename = "__Uplink Station__/sound/Deactivate.ogg",
+		filename = "__Satellite Uplink Station__/sound/Deactivate.ogg",
 		volume = 0
 	  },
 	},
