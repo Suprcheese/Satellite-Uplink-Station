@@ -58,6 +58,8 @@ This art resource is used under the terms of the CC-BY-SA license.
 The sound effects are from the video game "Command & Conquer: Red Alert" by Westwood Studios.
 This video game was released as freeware in 2008.
 
+This mod makes use of the Factorio Standard Library by Afforess (https://github.com/Afforess/Factorio-Stdlib).
+
 Portions of the control.lua code (et al.) were inspired by code from the following mods:
 
 	-YARM by Narc
