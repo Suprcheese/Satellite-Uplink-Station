@@ -2,6 +2,9 @@
 -- @module game
 
 Game = {}
+Game.VALID_FILTER = function(v)
+    return v.valid
+end
 
 --- Messages all players currently connected to the game
 -- @param msg message to send to players
@@ -51,3 +54,5 @@ function Game.print_surface(surface, msg)
         return player.surface.name == surface_name
     end)
 end
+
+return Game
