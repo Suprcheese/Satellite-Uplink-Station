@@ -7,10 +7,8 @@ script.on_init(function() On_Init() end)
 script.on_configuration_changed(function() On_Init() end)
 
 function On_Init()
-	if not global.character_data then
-		global.character_data = {}
-	end
-	for i, player in ipairs(game.players) do
+	global.character_data = global.character_data or {}
+	for i, player in pairs(game.players) do
 		if player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0 then
 			player.force.technologies["uplink-station"].enabled = true
 		end
@@ -56,7 +54,7 @@ end
 script.on_event(defines.events.on_rocket_launched, function(event)
 	local force = event.rocket.force
 	if not force.technologies["uplink-station"].enabled then
-		for i, player in ipairs(force.players) do
+		for i, player in pairs(force.players) do
 			if player.connected then
 				if (player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0) or event.rocket.get_item_count("satellite") > 0 then
 					player.force.technologies["uplink-station"].enabled = true
@@ -71,7 +69,7 @@ end)
 if disableLogisticsWhileUplinked then
 	script.on_event(defines.events.on_tick, function(event)
 		if game.tick % 60 == 2 then
-			for i, player in ipairs(game.players) do
+			for i, player in pairs(game.players) do
 				if player.connected and player.character.name == "orbital-uplink" then
 					for i = 1, #player.get_inventory(defines.inventory.player_quickbar) do
 						if player.get_inventory(defines.inventory.player_quickbar)[i].valid_for_read and isContraband(player.get_inventory(defines.inventory.player_quickbar)[i]) then
@@ -91,7 +89,7 @@ if disableLogisticsWhileUplinked then
 			end
 		end
 		if game.tick % 30 == 23 then
-			for i, player in ipairs(game.players) do
+			for i, player in pairs(game.players) do
 				if not player.get_inventory(defines.inventory.player_trash).is_empty() then
 					for i = 1, #player.get_inventory(defines.inventory.player_trash) do
 						if player.get_inventory(defines.inventory.player_trash)[i].valid_for_read then
