@@ -1,6 +1,6 @@
 local empty_animation = {
     filename = "__Satellite Uplink Station__/graphics/null.png",
-    priority = "medium",
+    priority = "low",
     width = 0,
     height = 0,
     direction_count = 18,
@@ -119,7 +119,7 @@ data:extend({
           animation_speed = 0,
           max_advance = 0,
 		  scale = 0.33,
-		  priority = "extra-high",
+		  priority = "low",
 		  filename = "__Satellite Uplink Station__/graphics/UplinkStation.png",
         },
       }
