@@ -118,7 +118,7 @@ script.on_event(defines.events.on_preplayer_mined_item, function(event)
 end)
 
 script.on_event(defines.events.on_player_driving_changed_state, function(event)
-	local player = game.get_player(event.player_index)
+	local player = game.players[event.player_index]
 	if player.vehicle and player.character.name == "orbital-uplink" then
 		player.driving = false
 		return
