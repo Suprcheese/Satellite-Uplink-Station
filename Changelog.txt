@@ -26,3 +26,9 @@ Officially changed to the MIT License.
 Officially changed the mod-folder name to "Satellite Uplink Sation" as opposed to just "Uplink Station".
 The mod is now using the Factorio Standard Library (https://github.com/Afforess/Factorio-Stdlib/wiki).
 Fixed a rare crash when the uplink station was destroyed and the player's character killed while they were uplinked.
+
+
+Version 0.1.4 - May 31, 2016
+-----------------------------
+Added German translation (thanks to apcnc).
+Added extra safeguards against a rare bug where the uplink-entity could be killed by enemy action.
