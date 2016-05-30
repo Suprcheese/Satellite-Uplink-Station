@@ -131,6 +131,7 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		global.character_data[event.player_index] = player.character
 		local uplink = player.surface.create_entity{name="orbital-uplink", position=player.position, force=player.force}
 		player.character = uplink
+		uplink.destructible = false
 		if game.item_prototypes["ion-cannon-targeter"] then
 			player.insert({name="ion-cannon-targeter", count=1})
 		end
