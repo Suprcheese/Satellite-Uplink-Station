@@ -28,8 +28,6 @@ Additionally, this mod is aware of Bob's mods and will update its recipes and te
 Known Issues:
 -------------
 
-When using a blueprint while uplinked, you are unable to use the Q key to automatically return the blueprint to your quickbar; you must manually click a slot to return it.
-
 You're supposed to only have an observer's view while uplinked and have a limited potential for interactions.
 However, you can still use the logistics system while uplinked to request items that will go to your quickbar -- but if you do, the items will be immediately deleted when the bots deliver them to you.
 Really, you should just refrain from using the logistic system while uplinked and only use the items that are given to you by default.
