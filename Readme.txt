@@ -1,13 +1,11 @@
-Satellite Uplink Station 0.1.4
+Satellite Uplink Station 1.0.0
 ==============================
 
-Version 0.1.4 was released May 31, 2016, was tested using Factorio v0.12.34, and was authored by Supercheese.
+Version 1.0.0 was released July 2, 2016, was tested using Factorio v0.13.3, and was authored by Supercheese.
 
 This mod features Satellite Uplink Stations: Build and enter an uplink station like any other vehicle (enter key by default), and you'll gain the ability to remotely view any area as an "eye in the sky" thanks to your spy satellite(s) in orbit.
 You can move the view around using the same movement keys (WASD by default), and when you're finished, click the "Terminate Uplink" button at top to return to controlling your player-character dude.
-Although you cannot craft or remove/drop items while uplinked, nor interact with assembly machines etc., you can still use your deconstruction planner, explore any territory, and remotely direct trains.
-You also receive ten empty blueprints you may use while uplinked.
-The Blueprint String mod (https://forums.factorio.com/viewtopic.php?t=13651) will let you import your blueprints into these empty ones, and save them if you make new blueprints; remember that blueprints you make while uplinked will be destroyed when you terminate the uplink.
+Although you cannot craft or remove/drop items while uplinked, nor interact with assembly machines etc., you can still use your deconstruction planner, explore any territory, and manage trains.
 
 This mod is also intended as a supplement to the Orbital Ion Cannon mod: While using the Uplink Station, you can remotely target your orbital ion cannon(s) without having to be anywhere near the blast zone!
 This should hopefully greatly reduce the number of accidental friendly fire incidents.
@@ -32,18 +30,14 @@ Known Issues:
 
 When using a blueprint while uplinked, you are unable to use the Q key to automatically return the blueprint to your quickbar; you must manually click a slot to return it.
 
-Even though you have no inventory while uplinked, as of Factorio v0.12.30, you can still pick up items off the ground that go directly to your quickbar. This may lead to annoying messages when the game tries to auto-insert lootable Alien Artifacts, but is unable to do so.
-However, there is a fix for this in the pipeline for Factorio v0.13.
-
-Although you're just supposed to have an observer's view while uplinked and only have limited potential for interactions, you can still use the logistics system while uplinked to request items that will go to your quickbar.
-This has the potential for unintended abuse of the uplink, and so there is an option in config that will aggressively stifle the use of the logistics network while uplinked, but it is not enabled by default due to its performance cost.
+You're supposed to only have an observer's view while uplinked and have a limited potential for interactions.
+However, you can still use the logistics system while uplinked to request items that will go to your quickbar -- but if you do, the items will be immediately deleted when the bots deliver them to you.
 Really, you should just refrain from using the logistic system while uplinked and only use the items that are given to you by default.
 
 Because the Uplink Station is coded as a "car"-type entity, it cannot be built or deconstructed by robots, nor included in blueprints; it must be placed and picked up by hand.
 
 This mod has been tested with The Fat Controller, and you should be able to use its remote-train-control feature while uplinked -- although you can achieve essentially the same results simply by flying over the train while uplinked.
 This mod has been tested with YARM, but you cannot use YARM's remote viewing feature while uplinked.
-(Of note, both YARM and TFC are subject to the same issue of still being able to use personal logistic slots to request items while remote-viewing.)
 
 
 Credits:

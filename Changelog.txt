@@ -32,3 +32,11 @@ Version 0.1.4 - May 31, 2016
 -----------------------------
 Added German translation (thanks to apcnc).
 Added extra safeguards against a rare bug where the uplink-entity could be killed by enemy action.
+
+
+Version 1.0.0 - July 2, 2016
+----------------------------
+Updated for Factorio 0.13.
+The player can no longer pick up items on the ground while uplinked -- no more "Cannot insert Alien Artifact" spam!
+It is now no longer possible to remove the dummy armor that is automatically given to the uplink-character, nor the equipment within.
+It is now no longer possible to use the logistics system while uplinked to request items -- any items that bots do bring to you will be destroyed.
