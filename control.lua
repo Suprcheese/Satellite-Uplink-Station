@@ -146,11 +146,7 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		if game.item_prototypes["ion-cannon-targeter"] then
 			player.insert({name="ion-cannon-targeter", count=1})
 		end
-		if game.item_prototypes["filtered-deconstruction-planner"] then
-			player.insert({name="filtered-deconstruction-planner", count=1})
-		else
-			player.insert({name="deconstruction-planner", count=1})
-		end
+		player.insert({name="deconstruction-planner", count=1})
 		if game.item_prototypes["upgrade-planner"] then
 			player.insert({name="upgrade-planner", count=1})
 		end
