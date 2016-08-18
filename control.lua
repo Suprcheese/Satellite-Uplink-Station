@@ -47,7 +47,7 @@ script.on_event(defines.events.on_player_cursor_stack_changed, function(event)
 		local stack = player.cursor_stack
 		if stack and stack.valid_for_read then
 			local name = stack.name
-			if name == "ion-cannon-targeter" or name == "deconstruction-planner" or name == "filtered-deconstruction-planner" or name == "upgrade-builder" or name == "resource-monitor" then
+			if not isContraband(stack) then
 				return
 			elseif name == "dummy-armor" then
 				local armor_inv = player.get_inventory(defines.inventory.player_armor)
@@ -93,7 +93,7 @@ script.on_event(defines.events.on_player_tool_inventory_changed, function(event)
 end)
 
 function isContraband(item)
-	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" then
+	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" or item.name == "blueprint" or item.name == "blueprint-book" then
 		return false
 	else
 		return true
@@ -128,6 +128,100 @@ script.on_event(defines.events.on_preplayer_mined_item, function(event)
 	end
 end)
 
+function getBlueprintBookData(stack)
+	data = {}
+	data.main = {}
+	if stack.name == "blueprint-book" then
+		local inventory = stack.get_inventory(defines.inventory.item_active)
+		if (inventory[1].valid_for_read and inventory[1].is_blueprint_setup()) then
+			data.active = {
+				label = inventory[1].label,
+				entities = inventory[1].get_blueprint_entities(),
+				icons = inventory[1].blueprint_icons,
+				tiles = inventory[1].get_blueprint_tiles()
+			}
+		end
+		inventory = stack.get_inventory(defines.inventory.item_main)
+		for i = 1, #(inventory) do
+			if (inventory[i].valid_for_read and inventory[i].is_blueprint_setup()) then
+				table.insert(data.main, {
+					label = inventory[i].label,
+					entities = inventory[i].get_blueprint_entities(),
+					icons = inventory[i].blueprint_icons,
+					tiles = inventory[i].get_blueprint_tiles()
+				})
+			end
+		end
+	end
+	return data
+end
+
+function getBlueprintBooks(player)
+	local books = {}
+	local inventory = player.get_inventory(defines.inventory.player_main)
+	for i = 1, #inventory do
+		if inventory[i].valid_for_read then
+			if inventory[i].name == "blueprint-book" then
+				table.insert(books, getBlueprintBookData(inventory[i]))
+			end
+		end
+	end
+	inventory = player.get_inventory(defines.inventory.player_quickbar)
+	for i = 1, #inventory do
+		if inventory[i].valid_for_read then
+			if inventory[i].name == "blueprint-book" then
+				table.insert(books, getBlueprintBookData(inventory[i]))
+			end
+		end
+	end
+	return books
+end
+
+function insertBlueprint(stack, data)
+	stack.set_blueprint_entities(data.entities)
+	stack.set_blueprint_tiles(data.tiles)
+	stack.blueprint_icons = data.icons
+	if data.label then
+		stack.label = data.label
+	end
+end
+
+function insertBlueprintBook(stack, data)
+	local inventory = stack.get_inventory(defines.inventory.item_main)
+	if data.active then
+		stack.get_inventory(defines.inventory.item_active).insert("blueprint")
+		insertBlueprint(stack.get_inventory(defines.inventory.item_active)[1], data.active)
+	end
+	for i = 1, #(data.main) do
+		inventory.insert("blueprint")
+		insertBlueprint(inventory[i], data.main[i])
+	end
+end
+
+function isBlueprintBookEmpty(stack)
+	local inv = stack.get_inventory(defines.inventory.item_active)
+	if (inv[1].valid_for_read and inv[1].is_blueprint_setup()) then
+		return false
+	end
+	inv = stack.get_inventory(defines.inventory.item_main)
+	for i = 1, #(inv) do
+		if (inv[i].valid_for_read and inv[i].is_blueprint_setup()) then
+			return false
+		end
+	end
+	return true
+end
+
+function getWritableBlueprintBook(player)
+	local inv = player.get_inventory(defines.inventory.player_quickbar)
+	for i = 1, #inv do
+		if (not inv[i].valid_for_read and inv[i].valid and inv[i].can_set_stack({name="blueprint-book", count=1})) then
+			inv[i].set_stack({name="blueprint-book", count=1})
+			return inv[i]
+		end
+	end
+end
+
 script.on_event(defines.events.on_player_driving_changed_state, function(event)
 	local player = game.players[event.player_index]
 	if player.vehicle and player.character.name == "orbital-uplink" then
@@ -139,24 +233,29 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		if enableSounds then
 			playSoundForPlayer("uplink-activate", player)
 		end
+		local blueprintBooks = getBlueprintBooks(player)
 		global.character_data[event.player_index] = player.character
 		local uplink = player.surface.create_entity{name="orbital-uplink", position=player.position, force=player.force}
 		player.character = uplink
 		uplink.destructible = false
+		local quickbar = player.get_inventory(defines.inventory.player_quickbar)
 		if game.item_prototypes["ion-cannon-targeter"] then
-			player.insert({name="ion-cannon-targeter", count=1})
+			quickbar.insert({name="ion-cannon-targeter", count=1})
 		end
-		player.insert({name="deconstruction-planner", count=1})
+		quickbar.insert({name="deconstruction-planner", count=1})
 		if game.item_prototypes["upgrade-builder"] then
-			player.insert({name="upgrade-builder", count=1})
+			quickbar.insert({name="upgrade-builder", count=1})
 		end
 		if game.item_prototypes["resource-monitor"] then
-			player.insert({name="resource-monitor", count=1})
+			quickbar.insert({name="resource-monitor", count=1})
 		end
 		player.get_inventory(defines.inventory.player_armor).insert({name="dummy-armor", count=1})
 		local armor = player.get_inventory(defines.inventory.player_armor)[1]
 		armor.grid.put{name="fusion-reactor-equipment"}
 		armor.grid.put{name="night-vision-equipment"}
+		for i = 1, #blueprintBooks do
+			insertBlueprintBook(getWritableBlueprintBook(player), blueprintBooks[i])
+		end
 		if not player.gui.top["terminate-uplink"] then
 			player.gui.top.add{type="button", name="terminate-uplink", caption={"terminate-uplink"}}
 		end
