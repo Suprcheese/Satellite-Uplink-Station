@@ -1,14 +1,14 @@
-Satellite Uplink Station 1.0.0
+Satellite Uplink Station 1.0.1
 ==============================
 
-Version 1.0.0 was released July 2, 2016, was tested using Factorio v0.13.3, and was authored by Supercheese.
+Version 1.0.1 was released August 18, 2016, was tested using Factorio v0.13.15, and was authored by Supercheese.
 
 This mod features Satellite Uplink Stations: Build and enter an uplink station like any other vehicle (enter key by default), and you'll gain the ability to remotely view any area as an "eye in the sky" thanks to your spy satellite(s) in orbit.
 You can move the view around using the same movement keys (WASD by default), and when you're finished, click the "Terminate Uplink" button at top to return to controlling your player-character dude.
-Although you cannot craft or remove/drop items while uplinked, nor interact with assembly machines etc., you can still use your deconstruction planner, explore any territory, and manage trains.
+Although you cannot craft or remove/drop items while uplinked, nor interact with assembly machines etc., you can still use your blueprints, deconstruction planner, explore any territory, and manage trains.
 
 This mod is also intended as a supplement to the Orbital Ion Cannon mod: While using the Uplink Station, you can remotely target your orbital ion cannon(s) without having to be anywhere near the blast zone!
-This should hopefully greatly reduce the number of accidental friendly fire incidents.
+This should hopefully greatly curtail the number of accidental friendly fire incidents.
 
 In order to unlock the Satellite Uplinking research, you must have at least one satellite (vanilla satellite, not ion cannon) in orbit; this effectively gives you something extra to do after you've "beaten the game".
 Since it is an endgame technology, it is pretty expensive.
@@ -16,7 +16,6 @@ The uplink station is constructed with a fully independent power supply and can 
 
 Further functionality is available if you have any of the following mods:
 
--Filtered Deconstruction Planner
 -Upgrade Planner
 -YARM
 
@@ -54,6 +53,7 @@ This mod makes use of the Factorio Standard Library by Afforess (https://github.
 
 Portions of the control.lua code (et al.) were inspired by code from the following mods:
 
+	-ExoMan by sebgggg
 	-YARM by Narc
 	-The Fat Controller by Choumiko
 

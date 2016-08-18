@@ -40,3 +40,9 @@ Updated for Factorio 0.13.
 The player can no longer pick up items on the ground while uplinked -- no more "Cannot insert Alien Artifact" spam!
 It is now no longer possible to remove the dummy armor that is automatically given to the uplink-character, nor the equipment within.
 It is now no longer possible to use the logistics system while uplinked to request items -- any items that bots do bring to you will be destroyed.
+
+
+Version 1.0.1 - August 18, 2016
+-------------------------------
+Any blueprint books you have in your possession upon entering the uplink station will now be copied over so you can use them while uplinked!
+Updated to support recent versions of Upgrade Planner.
