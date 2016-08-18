@@ -47,7 +47,7 @@ script.on_event(defines.events.on_player_cursor_stack_changed, function(event)
 		local stack = player.cursor_stack
 		if stack and stack.valid_for_read then
 			local name = stack.name
-			if name == "ion-cannon-targeter" or name == "deconstruction-planner" or name == "filtered-deconstruction-planner" or name == "upgrade-planner" or name == "resource-monitor" then
+			if name == "ion-cannon-targeter" or name == "deconstruction-planner" or name == "filtered-deconstruction-planner" or name == "upgrade-builder" or name == "resource-monitor" then
 				return
 			elseif name == "dummy-armor" then
 				local armor_inv = player.get_inventory(defines.inventory.player_armor)
@@ -93,7 +93,7 @@ script.on_event(defines.events.on_player_tool_inventory_changed, function(event)
 end)
 
 function isContraband(item)
-	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-planner" or item.name == "resource-monitor" then
+	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" then
 		return false
 	else
 		return true
@@ -147,8 +147,8 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 			player.insert({name="ion-cannon-targeter", count=1})
 		end
 		player.insert({name="deconstruction-planner", count=1})
-		if game.item_prototypes["upgrade-planner"] then
-			player.insert({name="upgrade-planner", count=1})
+		if game.item_prototypes["upgrade-builder"] then
+			player.insert({name="upgrade-builder", count=1})
 		end
 		if game.item_prototypes["resource-monitor"] then
 			player.insert({name="resource-monitor", count=1})
