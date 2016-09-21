@@ -46,3 +46,8 @@ Version 1.0.1 - August 18, 2016
 -------------------------------
 Any blueprint books you have in your possession upon entering the uplink station will now be copied over so you can use them while uplinked!
 Updated to support recent versions of Upgrade Planner.
+
+
+Version 1.0.2 - September 20, 2016
+----------------------------------
+Updated for Factorio 0.14.

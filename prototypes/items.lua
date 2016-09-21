@@ -1,3 +1,14 @@
+local dummy_armor = util.table.deepcopy(data.raw["armor"]["power-armor-mk2"])
+
+dummy_armor.name = "dummy-armor"
+dummy_armor.icon = "__Satellite Uplink Station__/graphics/null.png"
+dummy_armor.resistances = {}
+dummy_armor.subgroup = "armor"
+dummy_armor.order = "z[dummy]"
+dummy_armor.inventory_size_bonus = 0
+
+data:extend({dummy_armor})
+
 data:extend({
 	{
 		type = "item",
@@ -8,18 +19,5 @@ data:extend({
 		subgroup = "defensive-structure",
 		order = "c[uplink]",
 		stack_size = 1,
-	},
-	{
-		type = "armor",
-		name = "dummy-armor",
-		icon = "__Satellite Uplink Station__/graphics/null.png",
-		flags = {"goes-to-main-inventory"},
-		resistances = {},
-		durability = 10000,
-		subgroup = "armor",
-		order = "z[dummy]",
-		stack_size = 1,
-		equipment_grid = {width = 10, height = 10},
-		inventory_size_bonus = 0
 	}
 })
