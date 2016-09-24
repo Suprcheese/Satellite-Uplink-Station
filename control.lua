@@ -1,5 +1,4 @@
 require "util"
-require "stdlib/game"
 require ("config")
 
 script.on_init(function() On_Init() end)
@@ -107,7 +106,7 @@ script.on_event(defines.events.on_rocket_launched, function(event)
 			if player.connected then
 				if (player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0) or event.rocket.get_item_count("satellite") > 0 then
 					player.force.technologies["uplink-station"].enabled = true
-					Game.print_force(force, {"first-satellite-sent"})
+					player.force.print({"first-satellite-sent"})
 					break
 				end
 			end
