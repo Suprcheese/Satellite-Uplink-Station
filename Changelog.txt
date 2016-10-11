@@ -51,3 +51,8 @@ Updated to support recent versions of Upgrade Planner.
 Version 1.0.2 - September 20, 2016
 ----------------------------------
 Updated for Factorio 0.14.
+
+
+Version 1.0.3 - October 11, 2016
+----------------------------------
+Resolve issues with the Sandbox scenario: the mod no longer throws errors and now gives the player a notification that the uplink station is not needed in Sandbox mode.

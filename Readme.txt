@@ -1,7 +1,7 @@
-Satellite Uplink Station 1.0.2
+Satellite Uplink Station 1.0.3
 ==============================
 
-Version 1.0.2 was released September 21, 2016, was tested using Factorio v0.14.8, and was authored by Supercheese.
+Version 1.0.3 was released October 11, 2016, was tested using Factorio v0.14.13, and was authored by Supercheese.
 
 This mod features Satellite Uplink Stations: Build and enter an uplink station like any other vehicle (enter key by default), and you'll gain the ability to remotely view any area as an "eye in the sky" thanks to your spy satellite(s) in orbit.
 You can move the view around using the same movement keys (WASD by default), and when you're finished, click the "Terminate Uplink" button at top to return to controlling your player-character dude.
