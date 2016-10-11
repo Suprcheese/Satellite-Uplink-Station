@@ -15,8 +15,7 @@ end
 
 script.on_event(defines.events.on_gui_click, function(event)
 	local player = game.players[event.element.player_index]
-	local name = event.element.name
-	if (name == "terminate-uplink") then
+	if event.element.name == "terminate-uplink" then
 		local uplink = player.character
 		if not global.character_data[event.element.player_index] or not global.character_data[event.element.player_index].valid then
 			player.print({"critical-character-error"})
@@ -42,7 +41,7 @@ end
 
 script.on_event(defines.events.on_player_cursor_stack_changed, function(event)
 	local player = game.players[event.player_index]
-	if player.character.name == "orbital-uplink" then
+	if player.character and player.character.name == "orbital-uplink" then
 		local stack = player.cursor_stack
 		if stack and stack.valid_for_read then
 			local name = stack.name
@@ -65,7 +64,7 @@ end)
 
 script.on_event(defines.events.on_player_quickbar_inventory_changed, function(event)
 	local player = game.players[event.player_index]
-	if player.character.name == "orbital-uplink" then
+	if player.character and player.character.name == "orbital-uplink" then
 		local quickbar = player.get_inventory(defines.inventory.player_quickbar)
 		for i = 1, #quickbar do
 			if quickbar[i].valid_for_read and isContraband(quickbar[i]) then
@@ -77,7 +76,7 @@ end)
 
 script.on_event(defines.events.on_player_gun_inventory_changed, function(event)
 	local player = game.players[event.player_index]
-	if player.character.name == "orbital-uplink" then
+	if player.character and player.character.name == "orbital-uplink" then
 		local gun_inv = player.get_inventory(defines.inventory.player_guns)
 		gun_inv.clear()
 	end
@@ -85,7 +84,7 @@ end)
 
 script.on_event(defines.events.on_player_tool_inventory_changed, function(event)
 	local player = game.players[event.player_index]
-	if player.character.name == "orbital-uplink" then
+	if player.character and player.character.name == "orbital-uplink" then
 		local tool_inv = player.get_inventory(defines.inventory.player_tools)
 		tool_inv.clear()
 	end
@@ -223,6 +222,13 @@ end
 
 script.on_event(defines.events.on_player_driving_changed_state, function(event)
 	local player = game.players[event.player_index]
+	if not player.character then -- Handle sandbox scenario, where there is no player.character
+		if player.vehicle and player.vehicle.name then
+			player.driving = false
+			player.print({"sandbox-mode"})
+		end
+		return
+	end
 	if player.vehicle and player.character.name == "orbital-uplink" then
 		player.driving = false
 		return
