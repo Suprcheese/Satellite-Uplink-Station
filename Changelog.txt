@@ -56,3 +56,8 @@ Updated for Factorio 0.14.
 Version 1.0.3 - October 11, 2016
 ----------------------------------
 Resolve issues with the Sandbox scenario: the mod no longer throws errors and now gives the player a notification that the uplink station is not needed in Sandbox mode.
+
+
+Version 1.0.4 - October 31, 2016
+----------------------------------
+Resolve yet another issue with the Sandbox scenario: the mod no longer disallows entering all vehicles in Sandbox, only the Uplink Station.
