@@ -223,7 +223,7 @@ end
 script.on_event(defines.events.on_player_driving_changed_state, function(event)
 	local player = game.players[event.player_index]
 	if not player.character then -- Handle sandbox scenario, where there is no player.character
-		if player.vehicle and player.vehicle.name then
+		if player.vehicle and player.vehicle.name and player.vehicle.name == "uplink-station" then
 			player.driving = false
 			player.print({"sandbox-mode"})
 		end
