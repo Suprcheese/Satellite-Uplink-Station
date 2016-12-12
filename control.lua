@@ -6,6 +6,7 @@ script.on_configuration_changed(function() On_Init() end)
 
 function On_Init()
 	global.character_data = global.character_data or {}
+	global.station_data = global.station_data or {}
 	for i, player in pairs(game.players) do
 		if player.gui.left.rocket_score and tonumber(player.gui.left.rocket_score.rocket_count.caption) > 0 then
 			player.force.technologies["uplink-station"].enabled = true
@@ -31,6 +32,32 @@ script.on_event(defines.events.on_gui_click, function(event)
 		player.driving = false
 		if (player.gui.top["terminate-uplink"]) then
 			player.gui.top["terminate-uplink"].destroy()
+		end
+	end
+end)
+
+script.on_event(defines.events.on_entity_died, function(event)
+	local entity = event.entity
+	if entity.name == "uplink-station" then
+		for i, player in pairs(game.players) do
+			local index = player.index
+			if global.station_data[index] and global.station_data[index].valid and (entity == global.station_data[index]) and player.character and player.character.name == "orbital-uplink" then
+				local uplink = player.character
+				if not global.character_data[index] or not global.character_data[index].valid then
+					player.print({"critical-character-error"})
+					return
+				else
+					if enableSounds then
+						playSoundForPlayer("uplink-deactivate", player)
+					end
+					player.print({"uplink-terminated"})
+					player.character = global.character_data[index]
+				end
+				uplink.destroy()
+				if (player.gui.top["terminate-uplink"]) then
+					player.gui.top["terminate-uplink"].destroy()
+				end
+			end
 		end
 	end
 end)
@@ -222,24 +249,26 @@ end
 
 script.on_event(defines.events.on_player_driving_changed_state, function(event)
 	local player = game.players[event.player_index]
+	local vehicle = player.vehicle
 	if not player.character then -- Handle sandbox scenario, where there is no player.character
-		if player.vehicle and player.vehicle.name and player.vehicle.name == "uplink-station" then
+		if vehicle and vehicle.name and vehicle.name == "uplink-station" then
 			player.driving = false
 			player.print({"sandbox-mode"})
 		end
 		return
 	end
-	if player.vehicle and player.character.name == "orbital-uplink" then
+	if vehicle and player.character.name == "orbital-uplink" then
 		player.driving = false
 		return
 	end
-	if player.vehicle and player.vehicle.name == "uplink-station" then
+	if vehicle and vehicle.name == "uplink-station" then
 		player.print({"initiating-uplink"})
 		if enableSounds then
 			playSoundForPlayer("uplink-activate", player)
 		end
 		local blueprintBooks = getBlueprintBooks(player)
 		global.character_data[event.player_index] = player.character
+		global.station_data[event.player_index] = vehicle
 		local uplink = player.surface.create_entity{name="orbital-uplink", position=player.position, force=player.force}
 		player.character = uplink
 		uplink.destructible = false
