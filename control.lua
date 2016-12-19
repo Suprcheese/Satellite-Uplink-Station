@@ -118,7 +118,7 @@ script.on_event(defines.events.on_player_tool_inventory_changed, function(event)
 end)
 
 function isContraband(item)
-	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" or item.name == "blueprint" or item.name == "blueprint-book" then
+	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" or item.name == "blueprint" or item.name == "blueprint-book" or item.name == "unit-remote-control" or item.name == "zone-planner" then
 		return false
 	else
 		return true
@@ -247,6 +247,12 @@ function getWritableBlueprintBook(player)
 	end
 end
 
+function insertIfExists(item, inventory)
+	if game.item_prototypes[item] then
+		inventory.insert({name=item, count=1})
+	end
+end
+
 script.on_event(defines.events.on_player_driving_changed_state, function(event)
 	local player = game.players[event.player_index]
 	local vehicle = player.vehicle
@@ -273,16 +279,12 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		player.character = uplink
 		uplink.destructible = false
 		local quickbar = player.get_inventory(defines.inventory.player_quickbar)
-		if game.item_prototypes["ion-cannon-targeter"] then
-			quickbar.insert({name="ion-cannon-targeter", count=1})
-		end
-		quickbar.insert({name="deconstruction-planner", count=1})
-		if game.item_prototypes["upgrade-builder"] then
-			quickbar.insert({name="upgrade-builder", count=1})
-		end
-		if game.item_prototypes["resource-monitor"] then
-			quickbar.insert({name="resource-monitor", count=1})
-		end
+		insertIfExists("ion-cannon-targeter", quickbar)
+		insertIfExists("deconstruction-planner", quickbar)
+		insertIfExists("upgrade-builder", quickbar)
+		insertIfExists("resource-monitor", quickbar)
+		insertIfExists("unit-remote-control", quickbar)
+		insertIfExists("zone-planner", quickbar)
 		player.get_inventory(defines.inventory.player_armor).insert({name="dummy-armor", count=1})
 		local armor = player.get_inventory(defines.inventory.player_armor)[1]
 		armor.grid.put{name="fusion-reactor-equipment"}

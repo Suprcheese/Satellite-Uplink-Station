@@ -1,10 +1,10 @@
 {
   "name": "Satellite Uplink Station",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "factorio_version": "0.14",
   "title": "Satellite Uplink Station",
   "author": "Supercheese",
   "homepage": "http://www.factorioforums.com/forum/viewtopic.php?f=97&t=19883",
-  "dependencies": ["base >= 0.14.0", "? Orbital Ion Cannon", "? bobelectronics >= 0.12.0", "? bobtech >= 0.12.0", "? upgrade-planner >= 1.1.0", "? YARM >= 0.7.0"],
+  "dependencies": ["base >= 0.14.0", "? Orbital Ion Cannon", "? bobelectronics >= 0.12.0", "? bobtech >= 0.12.0"],
   "description": "Remotely view, explore, attack, or deconstruct by using your spy satellites in orbit."
 }

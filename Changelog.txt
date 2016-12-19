@@ -66,3 +66,8 @@ Resolve yet another issue with the Sandbox scenario: the mod no longer disallows
 Version 1.0.5 - December 12, 2016
 ---------------------------------
 Players are now immediately ejected from an Uplink Station if it is destroyed while in use.
+
+
+Version 1.0.6 - December 19, 2016
+---------------------------------
+Added support for using the Zone Planner and Unit Remote Controller while uplinked -- from the AAI Programmable Vehicles and Zones mods.
