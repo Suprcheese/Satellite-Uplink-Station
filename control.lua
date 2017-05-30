@@ -117,12 +117,22 @@ script.on_event(defines.events.on_player_tool_inventory_changed, function(event)
 	end
 end)
 
+--- Maps the item name to true for all items that are allowed while uplinked
+local g_isAllowed =
+{
+	["ion-cannon-targeter"] = true,
+	["deconstruction-planner"] = true,
+	["filtered-deconstruction-planner"] = true,
+	["upgrade-builder"] = true,
+	["resource-monitor"] = true,
+	["blueprint"] = true,
+	["blueprint-book"] = true,
+	["unit-remote-control"] = true,
+	["zone-planner"] = true,
+}
+
 function isContraband(item)
-	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" or item.name == "blueprint" or item.name == "blueprint-book" or item.name == "unit-remote-control" or item.name == "zone-planner" then
-		return false
-	else
-		return true
-	end
+	return not(g_isAllowed[item.name])
 end
 
 script.on_event(defines.events.on_rocket_launched, function(event)
