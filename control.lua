@@ -129,6 +129,8 @@ local g_isAllowed =
 	["blueprint-book"] = true,
 	["unit-remote-control"] = true,
 	["zone-planner"] = true,
+	["tree-deconstructor"] = true,
+	["alien-artifact-deconstructor"] = true,
 }
 
 function isContraband(item)
@@ -295,6 +297,8 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		insertIfExists("resource-monitor", quickbar)
 		insertIfExists("unit-remote-control", quickbar)
 		insertIfExists("zone-planner", quickbar)
+		insertIfExists("tree-deconstructor", quickbar)
+		insertIfExists("alien-artifact-deconstructor", quickbar)
 		player.get_inventory(defines.inventory.player_armor).insert({name="dummy-armor", count=1})
 		local armor = player.get_inventory(defines.inventory.player_armor)[1]
 		armor.grid.put{name="fusion-reactor-equipment"}
