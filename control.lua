@@ -117,12 +117,24 @@ script.on_event(defines.events.on_player_tool_inventory_changed, function(event)
 	end
 end)
 
+--- Maps the item name to true for all items that are allowed while uplinked
+local g_isAllowed =
+{
+	["ion-cannon-targeter"] = true,
+	["deconstruction-planner"] = true,
+	["filtered-deconstruction-planner"] = true,
+	["upgrade-builder"] = true,
+	["resource-monitor"] = true,
+	["blueprint"] = true,
+	["blueprint-book"] = true,
+	["unit-remote-control"] = true,
+	["zone-planner"] = true,
+	["tree-deconstructor"] = true,
+	["alien-artifact-deconstructor"] = true,
+}
+
 function isContraband(item)
-	if item.name == "ion-cannon-targeter" or item.name == "deconstruction-planner" or item.name == "filtered-deconstruction-planner" or item.name == "upgrade-builder" or item.name == "resource-monitor" or item.name == "blueprint" or item.name == "blueprint-book" or item.name == "unit-remote-control" or item.name == "zone-planner" then
-		return false
-	else
-		return true
-	end
+	return not(g_isAllowed[item.name])
 end
 
 script.on_event(defines.events.on_rocket_launched, function(event)
@@ -285,6 +297,8 @@ script.on_event(defines.events.on_player_driving_changed_state, function(event)
 		insertIfExists("resource-monitor", quickbar)
 		insertIfExists("unit-remote-control", quickbar)
 		insertIfExists("zone-planner", quickbar)
+		insertIfExists("tree-deconstructor", quickbar)
+		insertIfExists("alien-artifact-deconstructor", quickbar)
 		player.get_inventory(defines.inventory.player_armor).insert({name="dummy-armor", count=1})
 		local armor = player.get_inventory(defines.inventory.player_armor)[1]
 		armor.grid.put{name="fusion-reactor-equipment"}

@@ -16,10 +16,11 @@ The uplink station is constructed with a fully independent power supply and can 
 
 Further functionality is available if you have any of the following mods:
 
--Upgrade Planner
--YARM
--AAI Programmable Vehicles
--AAI Zones
+- Upgrade Planner
+- YARM
+- AAI Programmable Vehicles
+- AAI Zones
+- TreeDeconstructor
 
 Should these mods be detected, you can also remotely use their items via the uplink station.
 
