@@ -4,21 +4,12 @@
 require 'stdlib/core'
 require 'stdlib/game'
 
-
 Event = {
     _registry = {},
     core_events = {
         init = -1,
         load = -2,
         configuration_changed = -3,
-        _lookup_name = function(lookup_id)
-            for name, id in pairs(Event.core_events) do
-                if lookup_id == id then
-                    return name
-                end
-            end
-            return lookup_id
-        end,
         _register = function(id)
             if id == Event.core_events.init then
                 script.on_init(function()
@@ -73,7 +64,6 @@ end
 -- @param event LuaEvent as created by game.raise_event
 function Event.dispatch(event)
     fail_if_missing(event, "missing event argument")
-
     if Event._registry[event.name] then
         for _, handler in pairs(Event._registry[event.name]) do
             local metatbl = { __index = function(tbl, key) if key == '_handler' then return handler else return rawget(tbl, key) end end }
@@ -82,7 +72,10 @@ function Event.dispatch(event)
             if not success then
                 -- may be nil in on_load
                 if _G.game then
-                    Game.print_all(err)
+                    if Game.print_all(err) == 0 then
+                        -- no players received the message, force a real error so someone notices
+                        error(err)
+                    end
                 else
                     -- no way to handle errors cleanly when the game is not up
                     error(err)
