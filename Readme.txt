@@ -1,7 +1,7 @@
-Satellite Uplink Station 1.0.6
+Satellite Uplink Station 1.1.0
 ==============================
 
-Version 1.0.6 was released December 19, 2016, was tested using Factorio v0.14.21, and was authored by Supercheese.
+Version 1.1.0 was released June 27, 2017, was tested using Factorio v0.15.22, and was authored by Supercheese, with additional contribution from madmaxoft.
 
 This mod features Satellite Uplink Stations: Build and enter an uplink station like any other vehicle (enter key by default), and you'll gain the ability to remotely view any area as an "eye in the sky" thanks to your spy satellite(s) in orbit.
 You can move the view around using the same movement keys (WASD by default), and when you're finished, click the "Terminate Uplink" button at top to return to controlling your player-character dude.
@@ -10,8 +10,7 @@ Although you cannot craft or remove/drop items while uplinked, nor interact with
 This mod is also intended as a supplement to the Orbital Ion Cannon mod: While using the Uplink Station, you can remotely target your orbital ion cannon(s) without having to be anywhere near the blast zone!
 This should hopefully greatly curtail the number of accidental friendly fire incidents.
 
-In order to unlock the Satellite Uplinking research, you must have at least one satellite (vanilla satellite, not ion cannon) in orbit; this effectively gives you something extra to do after you've "beaten the game".
-Since it is an endgame technology, it is pretty expensive.
+Since Satellite Uplinking is an endgame technology, it is pretty expensive.
 The uplink station is constructed with a fully independent power supply and can be used anywhere; it does not need to be connected to your power grid.
 
 Further functionality is available if you have any of the following mods:
@@ -21,10 +20,15 @@ Further functionality is available if you have any of the following mods:
 - AAI Programmable Vehicles
 - AAI Zones
 - TreeDeconstructor
+- Map Ping
 
 Should these mods be detected, you can also remotely use their items via the uplink station.
 
-Additionally, this mod is aware of Bob's mods and will update its recipes and technology if Bob's Electronics and/or Tech mods are installed.
+Some settings can be adjusted via the in-game Mod Settings (Options -> Mods). Here you may adjust myriad parameters such as:
+
+	-Disable/Enable the sounds that play on entering/exiting an Uplink Station
+	-Disable/Enable Bob's mods-customization, wherein the mod will update its recipes and technology if Bob's Electronics and/or Tech mods are installed
+	-Enable Full Control while uplinked, where you will gain full interactivity, being able to choose assembling machine recipes, set requester chest filters, etc. -- however, this may also enable some unintended behaviors, so it is false by default; use at your own discretion.
 
 
 Known Issues:

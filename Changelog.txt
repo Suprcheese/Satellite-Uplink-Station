@@ -71,3 +71,15 @@ Players are now immediately ejected from an Uplink Station if it is destroyed wh
 Version 1.0.6 - December 19, 2016
 ---------------------------------
 Added support for using the Zone Planner and Unit Remote Controller while uplinked -- from the AAI Programmable Vehicles and Zones mods.
+
+
+Version 1.1.0 - June 27, 2017
+-----------------------------
+Updated for Factorio 0.15.
+Added support for the TreeDeconstructor and Map Ping mods.
+Code refactoring (thanks to madmaxoft).
+New technology costs.
+Since space science packs are now required, the requirement to launch a satellite before the research is unlocked has been removed.
+Added support for in-game mod options (Options -> Mods).
+You are now not pushed around by belts while uplinked.
+The performance-hungry copying of all blueprint books has been removed, because 0.15's new Blueprint Library feature now allows you to access any of your blueprints while uplinked.

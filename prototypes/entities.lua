@@ -150,6 +150,7 @@ data:extend({
     },
     rotation_speed = 0,
     weight = 700,
+	-- equipment_grid = "small-equipment-grid",
     inventory_size = 0
   },
   {

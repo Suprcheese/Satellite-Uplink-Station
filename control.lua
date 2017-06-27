@@ -137,9 +137,10 @@ function isContraband(item)
 end
 
 script.on_event(defines.events.on_built_entity, function(event)
-	if event.created_entity.name == "uplink-station" then
-		event.created_entity.insert{name="coal", count=1}
-		event.created_entity.operable = false
+	local entity = event.created_entity
+	if entity.name == "uplink-station" then
+		entity.insert{name="coal", count=1}
+		entity.operable = false
 	end
 end)
 
