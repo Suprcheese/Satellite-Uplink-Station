@@ -5,7 +5,7 @@ local empty_animation = {
     height = 0,
     direction_count = 18,
     frame_count = 1,
-    animation_speed = 0,
+    animation_speed = 1,
     shift = {0,0},
     axially_symmetrical = false,
 }
@@ -31,7 +31,7 @@ data:extend({
     name = "orbital-uplink",
     icon = "__base__/graphics/icons/player.png",
     flags = {"placeable-off-grid", "not-on-map", "not-repairable"},
-    max_health = 0,
+    max_health = 1,
     healing_per_tick = 0,
     collision_box = {{-0, -0}, {0, 0}},
     selection_box = {{-0, -0}, {0, 0}},
@@ -46,6 +46,7 @@ data:extend({
     reach_resource_distance = 0,
     ticks_to_keep_gun = 0,
     ticks_to_keep_aiming_direction = 0,
+	ticks_to_stay_in_combat = 0,
     damage_hit_tint = {r = 0, g = 0, b = 0, a = 0},
     running_speed = 1.5,
     distance_per_frame = 0.13,
@@ -67,9 +68,9 @@ data:extend({
       }
     },
     animations = {
-    level1 = null,
-    level2addon = null,
-    level3addon = null,
+		level1 = null,
+		level2addon = null,
+		level3addon = null,
 	},
     light = {{ intensity=0, size=0 }},
     mining_speed = 0,
@@ -118,7 +119,7 @@ data:extend({
           frame_count = 1,
           direction_count = 1,
           shift = {1.0, -2.5},
-          animation_speed = 0,
+          animation_speed = 1,
           max_advance = 0,
 		  scale = 0.33,
 		  priority = "low",
@@ -228,10 +229,6 @@ data:extend({
   },
 })
 
-if data.raw["item"]["resource-monitor"] then
-	data.raw["player"]["orbital-uplink"].build_distance = 7
-end
-
-if enableFullControlWhileUplinked then
-	data.raw["player"]["orbital-uplink"].reach_distance = 7
+if settings.startup["sat-uplink-full-control"].value then
+	data.raw["player"]["orbital-uplink"].reach_distance = 8
 end
