@@ -130,6 +130,12 @@ local g_isAllowed =
 	["tree-deconstructor"] = true,
 	["alien-artifact-deconstructor"] = true,
 	["ping-tool"] = true,
+	["creative-mode_magic-wand-creator"] = true,
+	["creative-mode_magic-wand-healer"] = true,
+	["creative-mode_magic-wand-modifier"] = true,
+	["picker-tape-measure"] = true,
+	["picker-ore-eraser"] = true,
+	["picker-camera"] = true,
 }
 
 function isContraband(item)
