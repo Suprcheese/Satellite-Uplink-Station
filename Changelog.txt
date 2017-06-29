@@ -83,3 +83,9 @@ Since space science packs are now required, the requirement to launch a satellit
 Added support for in-game mod options (Options -> Mods).
 You are now not pushed around by belts while uplinked.
 The performance-hungry copying of all blueprint books has been removed, because 0.15's new Blueprint Library feature now allows you to access any of your blueprints while uplinked.
+
+
+Version 1.1.1 - June 28, 2017
+-----------------------------
+Added technology description.
+Added support for the Picker Extended and Creative Mode mods.
