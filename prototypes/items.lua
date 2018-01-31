@@ -1,7 +1,7 @@
 local dummy_armor = util.table.deepcopy(data.raw["armor"]["power-armor-mk2"])
 
 dummy_armor.name = "dummy-armor"
-dummy_armor.icon = "__Satellite Uplink Station__/graphics/null.png"
+dummy_armor.icon = "__core__/graphics/empty.png"
 dummy_armor.resistances = {}
 dummy_armor.subgroup = "armor"
 dummy_armor.order = "z[dummy]"
